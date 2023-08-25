@@ -23,7 +23,6 @@ public class Cliente : Notifiable<Notification>
     {
         Nome = nome;
 
-        Clear();
         Validate();
     }
 
@@ -31,7 +30,6 @@ public class Cliente : Notifiable<Notification>
     {
         Email = email;
 
-        Clear();
         Validate();
     }
 
@@ -39,12 +37,13 @@ public class Cliente : Notifiable<Notification>
     {
         Idade = idade;
 
-        Clear();
         Validate();
     }
 
     private void Validate()
     {
+        Clear();
+        
         AddNotifications(new Contract<Notification>()
             .Requires()
             .IsNotNullOrEmpty(Nome, nameof(Nome), "Favor informar o nome do cliente!")
